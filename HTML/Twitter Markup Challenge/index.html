@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Twitter Markup Challenge</title>
+</head>
+<body>
+  <header>
+    <h1>
+      <a href="#">
+        <img src="http://placehold.it/" alt="Twitter"/>
+      </a>
+    </h1>
+    <nav> <!--문서간 이동하는 메뉴가 있는 경우 사용하면 굉장히 유용하며, 대신에 <h#> 태그를 작성해줘야 한다.-->
+      <h1>Menu</h1>
+      <ul>
+        <li>
+          <a href="#">
+            <span>Current page</span>
+            Home
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            Explore
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <strong aria-label="5 Unread notifications"></strong>
+            Notifications
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            Messages
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            BookMarks
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            Lists
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            Profile
+          </a>
+        </li>
+        <li>
+          <button type="button">
+            More
+          </a>
+        </li>
+      </ul>
+      <button type="button">
+        Tweet
+      </button>
+    </nav>
+  </header>
+
+  <main>
+    <header>
+      <h1>Home</h1>
+      <button type="button" aria-label="Timeline options">
+        <!--Icon-->
+      </button>
+      <div>
+        <h2>Home shows you top Tweets first</h2>
+        <button type="button">
+          <strong>
+            see latest Tweets instead
+          </strong>
+          <span>
+            You'll be switched back Home after you've been away for a while
+          </span>
+        </button>
+        <a href="#">
+          <!--Icon-->
+          View content preferences
+        </a>
+      </div>
+    </header>
+    <section><!--div보다 더 semantic하게 사용하기 위해서는 section을 사용-->
+      <h1>
+        What's happening?
+      </h1>
+      <form action="#" method="POST">
+        <img src="#" alt="@subin"/>
+        <textarea placeholder="what's happening" maxlength="280"></textarea>
+          <button type="button" aria-label="Upload files">
+            <!--Icon-->
+          </button>
+          <input type="file" multiple accept="image/*, video/*" />
+          <button type="button" aria-label="Search GIFs...">
+            <!--Icon-->
+          </button>
+          <button type="button" aria-label="Create a poll">
+            <!--Icon-->
+          </button>
+          <button type="button" aria-label="Choose emoji">
+            <!--Icon-->
+          </button>
+          <strong aria-label="0 out of 280 characters"></strong>
+          <button type="button" aria-label="Add another tweet"></button>
+          <button type="submit">Tweet</button>
+      </form>
+    </section>
+    <section>
+      <h1>Your Timeline</h1>
+      <ol>
+        <li>
+          <article>
+            <h1>A Tweet from 김익명</h1>
+            <header>
+              <a href="#">
+                <img src="#" alt="김익명 이미지" />
+              </a>
+              <h2>
+                <a href="#">
+                  김익명
+                </a>
+              </h2>
+              <dl>
+                <div>
+                  <dt>Username</dt>
+                  <a href="#">
+                    <dd>@anonymouskim</dd>
+                  </a>
+                </div>
+                <div>
+                  <dt>Posted</dt>
+                  <a href="#">
+                    <dd>Dec 25</dd>
+                  </a>
+                </div>
+              </dl>
+              <button type="button" aria-label="Options">
+                <!--Icon-->
+                <div>
+                  <button type="button">
+                    Show less often
+                  </button>
+                  <button type="button">
+                    Embed Tweet
+                  </button>
+                  <button type="button">
+                    Unfollow @anonymouskim
+                  </button>
+                  <button type="button">
+                    Block @anonymouskim
+                  </button>
+                  <button type="button">
+                    Report Tweet
+                  </button>
+                </div>
+              </button>
+            </header>
+            <p>
+              영어를 더 잘 하고싶다. 그러나 공부를 하고 싶지는 않다. 내 삶의 모든 것이 이런 식으로 망해왔다
+            </p>
+            <footer>
+              <button type="button">
+                <span class="sr-only">Tweet your reply</span>
+                <strong aria-label="3 replied">3</strong>
+              </button>
+              <button type="button">
+                <span class="sr-only">Retweet</span>
+                <strong aria-label="3 retweeted">3</strong>
+              </button>
+              <div>
+                <button type="button">
+                  Retweet
+                </button>
+                <button type="button">
+                  Retweet with comment
+                </button>
+              </div>
+              <button type="button">
+                <span class="sr-only">Like this tweet</span>
+                <strong aria-label="100 liked">100</strong>
+              </button>
+              <button type="button">
+                <span class="sr-only">Share</span>
+              </button>
+              <button type="button">
+                Send via Direct Message
+              </button>
+              <button type="button">
+                Add Tweet to Bookmarks
+              </button>
+              <button type="button">
+                Copy link to Tweet
+              </button>
+            </footer>
+          </article>
+          
+        </li>
+      </ol>
+    </section>
+  </main>
+  <aside><!--aside: section-->
+    <header>
+    <h1>
+      WorldWide Trends
+    </h1>
+    <button type="button" aria-label="Options">
+      <!--Icon-->
+    </button>
+    </header>
+    <ol>
+      <li>
+        <a href="#">
+          <button type="button" aria-label="Options">
+            <!--Icon-->
+          </button>
+          <div>
+            <button type="button">
+              <!--Icon-->
+              This trend is spam
+  
+            </button>
+          </div>
+          <span>1.Trending worldwide</span>
+          <strong lang="ko">수빈</strong>
+          <span>100K Tweets</span>
+        </a>
+      </li>
+    </ol>
+    <button type="button">Show more..</button>
+  </aside>
+  <footer>
+    <a href="#" target="_blank">Terms</a>
+    <a href="#" target="_blank">Privacy policy</a>
+    <a href="#" target="_blank">Cookies</a>
+    <a href="#" target="_blank">Ads info</a>
+    <button type="button">
+      More
+    </button>
+    <div>
+      <a href="#" target="_blank">About</a>
+      <a href="#" target="_blank">Status</a>
+      <a href="#" target="_blank">Businesses</a>
+      <a href="#" target="_blank">Developers</a>
+    </div>
+  
+    <span>© 2019 Twitter, Inc.</span>
+  </footer>  
+</body>
+</html>
