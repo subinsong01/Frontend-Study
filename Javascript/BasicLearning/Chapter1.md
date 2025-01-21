@@ -1,11 +1,15 @@
 # 📕 Chapter1 
 
 ## **🚀 목차**
+```
 - String & Number
 - Boolean & Null & Undefined
 - const, let
 - Array
 - Object
+- Function
+- Type Check
+```
 
 ## String & Number 
 
@@ -144,6 +148,7 @@ console.log(user[key]) //대괄호 표기법
 
 ## 참조형(Function)
 
+✨ `js`에서 `함수`는 `하나의 데이터`로 취급받는다
 ```js
 function hello(){
   console.log('hello')
@@ -153,4 +158,19 @@ hello()
 ```
 ```
 출력 : hello
+```
+
+## Type Check 
+
+- typeof
+- constructor
+  
+```js
+function checkType(data){
+  return Object.prototype.toString.call(data).slice(8, -1)
+} //데이터 type을 확인해줌(재사용 가능)
+
+console.log(checkType(null)) //Null
+console.log(checkType([])) //Array
+console.log(checkType(null) === 'Null') //true
 ```
