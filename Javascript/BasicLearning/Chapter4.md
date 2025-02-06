@@ -145,6 +145,74 @@ console.log(subin.isUser()) //error
 
 console.log(User.isUser(neo)) //true
 ```
+
 ## 상속 instanceof
 
-## instanceof와 constructor
+```js
+//운송수단
+class Vehicle{
+  constructor(acceleration = 1) {
+    this.speed = 0
+    this.acceleration = acceleration
+  }
+  accelerate(){
+    this.speed += this.acceleration
+  }
+  decelerate(){
+    if(this.speed <= 0) {
+      console.log('정지')
+      return
+    }
+    this.speed -= this.acceleration
+    }
+  }
+
+//자전거
+class Bicycle extends Vehicle {
+  constructor(price = 100, acceleration) {
+    super(acceleration)
+    this.price = price
+    this.wheel = 2
+   }
+  }
+
+const bicycle = new Bicycle(300)
+console.log(bicycle instanceof Bicycle) //bicycle의 instance가 Bicycle인가? true 나옴
+console.log(bicycle) //acceleration : 1
+
+//에러를 나타내고 싶은 경우 console.error()로 출력하기
+```
+
+## instanceof와 constructor(상속 예제)
+
+```js
+class A {
+    constructor(){
+  }
+}
+
+class B extends A{
+  constructor(){
+    super()
+    }
+  }
+
+class C extends B{
+  constructor(){
+    super()
+  }
+}
+
+const a = new A() //a는 하나의 instance
+const b = new B()
+const c = new C()
+
+
+console.log(a instanceof A) //true
+console.log(c instanceof B)//true
+console.log(c instanceof C)//true
+
+console.log(c.constructor === A) //false
+console.log(c.constructor === B) //false
+console.log(c.constructor === C) //true
+```
