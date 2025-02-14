@@ -10,8 +10,50 @@
 - `React Hook`
 
 ### 📂 Props
+- Props는 부모에서 자식으로 값을 넘겨주는 것
+  
+```jsx
+// 부모 컴포넌트
+import React from "react";
+import ChildComponent from "./ChildComponent";
 
+const ParentComponent = () => {
+  return <ChildComponent name="Subin" />;
+};
+
+export default ParentComponent;
+```
+```jsx
+// 자식 컴포넌트
+import React from "react";
+
+const ChildComponent = (props) => {
+  return <p>안녕하세요, {props.name}님!</p>;
+};
+
+export default ChildComponent;
+```
 ### 📂 EventHandler
+- 클릭하는 동작과 같은 것을 의미
+- `onClick`이 대표적인 이벤트핸들러
+
+```jsx
+import React from "react";
+
+const ButtonComponent = () => {
+  const handleClick = () => {
+    alert("Button clicked!");
+  };
+
+  return (
+    <button onClick={handleClick}> //이벤트핸들러
+      클릭하세요
+    </button>
+  );
+};
+
+export default ButtonComponent;
+```
 
 ### 📂 State
 - 현재 가지고 있는 형태나 모양을 정의
@@ -157,7 +199,7 @@ export default App
 - 자신이 제공받는 props의 값이 변경됐을 때
 - 부모 컴포넌트가 리랜더링 되었을 때 자식 컴포넌트도 리랜더링 된다
 
-`🧐 그렇기 때문에 코드에서도 count(부모 컴포넌트)가 리랜더링 > bulb(자식 컴포넌트)도 리랜더링 되는 이슈 발생` <br />
+`🧐 그렇기 때문에 코드에서도 count(부모 컴포넌트)가 랜더링 > bulb(자식 컴포넌트)도 함께 랜더링 되는 이슈 발생` <br />
 => 성능이 **굉장히** 안 좋아짐
 
 ```jsx
@@ -331,3 +373,100 @@ const Register = () => {
 }
 export default Register;
 ```
+### 📂 useRef
+
+- 새로운 Reference 객체를 생성하는 기능 `const refObject = useRef()`
+
+`useState vs useRef 차이점`
+
+<img width="400" alt="스크린샷 2025-02-14 오후 4 58 14" src="https://github.com/user-attachments/assets/d5ffa877-a958-45b6-9b94-c1d21b1da347" />
+
+- 랜더링에 영향을 미치지 않는 변수를 선언하고 싶을 때 사용
+  
+<img width="400" alt="스크린샷 2025-02-14 오후 5 06 53" src="https://github.com/user-attachments/assets/c7f0ef1e-34c7-43ee-b038-858d8a23778f" />
+
+```jsx
+
+import { useState, useRef } from "react";
+
+const refObj = useRef(0);//생성
+console.log(refObj.current);
+
+<button onClick={()=>{
+  refObj.current++;
+  console.log(refObj.current);
+  }}
+>
+  ref+1
+</button>
+```
+<img width="400" alt="스크린샷 2025-02-14 오후 5 17 10" src="https://github.com/user-attachments/assets/3fb06baf-f8b3-406d-8196-73521cc7eb7d" />
+
+`초기에 0이 다시 랜더링 되지 않는다`
+
+### 📂 React Hooks
+
+- 함수 컴포넌트, 커스텀 훅 내부에서만 호출 가능
+
+```jsx
+import { useState } from "react";
+
+const HookExam = () => {
+
+  const state = useState();
+  return <div>hook exam</div>
+}
+
+export default HookExam;
+```
+
+- 조건문이나 반복문으로 호출이 불가능하다
+- 나만의 훅을 직접 만들 수 있다
+ 
+```jsx
+//ex) 커스텀 훅 전
+const HookExam = () => {
+  const [input, setInput] = useState("");
+
+  const onChange = (e) => {
+    setInput(e.target.value);
+  }
+
+  return (
+    <div>
+      <input type={input} onChange={onChange} />
+    </div>
+  )
+}
+```
+
+```jsx
+//ex) 커스텀 훅 적용
+
+import { useState } from "react";
+
+function useInput() {
+  const[input, setInput] = useState("");
+
+  const onChange = (e) => {
+    setInput(e.target.value);
+  };
+
+  return [input, onChange];
+} //일반적으로 hooks폴더엔 넣어준다
+
+
+const HookExam = () => {
+  const [input, onChange] = useInput();
+  const [input2, onChange2] = useInput();
+
+  return (
+    <div>
+      <input type={input} onChange={onChange} />
+      <input type={input2} onChange={onChange2} />
+    </div>
+  )
+}
+
+export default HookExam;
+``` 
