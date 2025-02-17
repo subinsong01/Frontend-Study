@@ -84,6 +84,6 @@ const Exam = () => {
 
 export default Exam;
 ```
-
+🌱 [todo에 useReducer 적용 보러가기](https://github.com/subinsong01/React-todo)
 
 
