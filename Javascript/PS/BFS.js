@@ -21,7 +21,7 @@ function BFS(start){
         
         if(!visitedSet.has(node)){ //아직 방문하지 않은 경우
             visited.push(node); //방문한 순서를 기록 
-            visitedSet.add(node); //방문처리 
+            visitedSet.add(node); //set에 추가, includes보다 빠름  
             queue.push(...graph[node]);// 현재 노드와 연결된 노드들을 큐에 추가
         }
     }
