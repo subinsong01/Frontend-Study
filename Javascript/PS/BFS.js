@@ -1,4 +1,4 @@
-//bfs = queue, shift
+//bfs = queue, shift, FIFO(first in first out)
 
 let input = require('fs').readFileSync('/dev/stdin').toString().trim().split('\n');
 let [N, M, V] = input[0].split(' ').map(Number);
