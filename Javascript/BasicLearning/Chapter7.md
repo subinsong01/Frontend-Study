@@ -55,7 +55,7 @@ console.log(3)
 fetch 해서 가져온 데이터가 뜸
 ```
 
-## 콜백 패턴
+## 📂 콜백 패턴
 📍 **동기 방식**
 ```js
 const a = () => console.log(1)
@@ -130,7 +130,7 @@ getMovies('frozen', () => {
 })
 ```
 
-## Promise
+## 📂 Promise
 ```js
 const a = callback => {
   setTimeout(() => {
@@ -144,4 +144,75 @@ const b = () => console.log(2)
 a(() => {
   b()
 })
+```
+## 📂 Async Await 패턴 
+
+- await -> promise instance가 반환되는 함수 앞에서만 사용
+- 비동기적인 코드를 동기적으로 작성할 수 있게 해주는 문법
+
+```js
+const a = () => {
+  return new Promise(resolve => {
+    setTimeout(() => {
+      console.log(1)
+      resolve()
+    }, 1000)
+  }}
+}
+
+const b = () => console.log(2)
+
+//a.then(() => b()) //then을 사용해서 비동기 호출
+
+const wrap = async() =>{
+  await a()
+  b()
+}
+
+wrap() 
+```
+`비동기 방식 수정`
+
+```js
+const getMovies = (movieName, callback) => {
+  fetch(``)
+  .then(res => res.json())
+  .then(res => {
+    console.log(res)
+    callback()
+  })
+}
+
+//훨씬 더 직관적
+const wrap = async() => {
+  await getMovies('frozen')
+  console.log('겨울왕국');
+  await getMovies('avengers')
+  console.log('어벤져스');
+  await getMovies('avatar')
+  console.log('아바타');
+}
+
+wrap();
+```
+
+## 📂 Resolve, Reject & Error handling#1
+
+```js
+const delayAdd = (index, cb, errorCb) => {
+  setTimeout(() => {
+    if( index > 10 ) {
+      errorCb(`${index}는 10보다 클 수 없어요`);
+        return
+    }
+    console.log(index)
+    cb(index + 1)
+  }, 1000)
+}
+
+delayAdd(
+  4,
+  res => console.log(res);
+  err => console.log(err);
+)
 ```
