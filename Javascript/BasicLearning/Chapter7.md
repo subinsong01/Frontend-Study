@@ -3,8 +3,8 @@
 ## **🚀 목차**
 ```
 - 콜백과 콜백 지옥
-- Promise
-- Async await
+- Promise - 비동기 코드 관리
+- Async await - 비동기 코드 관리 
 - Resolve reject & error handling#1
 - Resolve reject & error handling#2
 - 반복문에서 비동기 처리
@@ -212,7 +212,127 @@ const delayAdd = (index, cb, errorCb) => {
 
 delayAdd(
   4,
-  res => console.log(res);
+  res => console.log(res); 
   err => console.log(err);
 )
 ```
+```
+4
+5
+```
+**에러 핸들링**
+
+```js
+const delayAdd = index => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+        if( index > 10 ) {
+          reject(`${index}는 10보다 클 수 없어요`);
+            return
+        }
+        console.log(index)
+        cb(index + 1)
+      }, 1000)
+  })
+}
+
+//promise - then - catch(err handling method) - finally():항상 실행 
+delayAdd(13)
+  .then(res => console.log(res))
+  .catch( err => console.log(err))
+```
+
+**async - await**
+// async-await(try-catch문으로 에러를 잡아야함)-finally():항상 실행 
+```js
+const delayAdd = index => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+        if( index > 10 ) {
+          reject(`${index}는 10보다 클 수 없어요`);
+            return
+        }
+        console.log(index)
+        cb(index + 1)
+      }, 1000)
+  })
+}
+
+const wrap() = async() => {
+ try{
+    const res = await delayAdd(2)
+    console.log(res)
+  }catch(err){
+   console.log(err)
+  }
+}
+
+wrap();
+```
+## 📂 반복문에서 비동기 처리
+
+```js
+const getMovies = movieName => {
+  return new Promise(resolve => {
+    fecth(``)
+    .then(res => res.json())
+    .then(res => resolve(res))
+  })
+}
+
+const titles = ['frozen', 'avengers', 'avatar']
+
+title.forEach(async title => {
+  const movies = await getMovies(title)
+  console.log(title, movies)
+})
+//반복을 기다리는 것이 아니라 한번에 진행된다.
+//결과가 새로고침할 때마다 다르다 
+
+for(const title of titles){
+  const movies = await getMovies(title)
+  console.log(title, movies)
+}
+
+const wrap = async() => {
+  for(const title of titles){
+    const movies = await getMovies(title)
+    console.log(title, movies)
+  }
+}
+wrap()
+```
+
+## 📂 fetch(주소, 옵션)
+
+- Promise 인스턴스를 반환
+- 네트워크 요청을 쉽게 보내고 응답을 받을 수 있음
+- JSON 데이터를 쉽게 처리 가능
+
+fetch 응답을 response.json()으로 쉽게 JSON 형태로 변환 가능.
+  
+```js
+fetch(``, {
+  method: 'GET', //POST, PUT, DELETE 가능
+  headers: {
+    'Content-Type': 'application/json'
+  }, 
+  body: JSON.stringify({
+  name: 'subin',
+  age: 85,
+  email: 'subin@gmail.com'
+})//body는 항상 문자 데이터로 전송해야 한다.
+})
+  .then(res => res.json())
+  .then(json => console.log())
+}
+```
+```js
+const wrap = async() => {
+  const res = await fetch(``)
+  const json = await res.json()
+  console.log(json)
+}
+wrap()
+```
+<img width="626" alt="스크린샷 2025-02-22 오후 7 52 59" src="https://github.com/user-attachments/assets/76cad8ca-416c-452f-b8e3-0ab8b174c53b" />
