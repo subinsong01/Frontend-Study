@@ -234,4 +234,92 @@ console.log(el)
 - `.add()`: 새로운 값을 추가
 - `.remove()`: 기존 값을 제거
 - `.toggle()`: 값을 토글
-- `.contains()`: 값을 확인 
+- `.contains()`: 값을 확인
+  
+🌱 `E.style`
+- 요소의 `style` 속성(인라인 스타일)의 css 속성 값을 얻거나 지정
+    
+🌱 `window.getComputedStyle()`
+- 요소에 적용된 스타일 객체를 반환한다.
+
+🌱 `getAttribute()` vs `setAttribute`
+- 요소에서 특정 속성 값을 얻거나 지정할 때 사용 
+
+✨ 속성 
+- html : attribute
+- css, js : property
+
+```js
+const el = document.querySelector('.child')
+el.setAttribute('title', 'Hello world');
+console.log(el.getAttribute('title'));
+//Hello world
+```
+🌱 `E.hasAttribute()` vs `E.removeAttribute()`
+- 요소에서 특정 속성을 확인하거나 제거한다.
+
+## 📂 크기와 좌표
+
+🌱 `window.innerWidth` vs `window.innerHeight`
+- 화면 전체의 크기(Viewport)를 얻는다
+
+🌱 `window.scrollX` vs `window.scrollY`
+- 페이지의 좌상단 기준, 현재 화면의 수평 / 수직 스크롤 위치를 얻는다
+
+```js
+console.log(window.scrollX, window.scrollY)
+```
+
+🌱 `window.scrollTo()` vs `E.scrollTo()`
+- 지정된 좌표로 대상(화면, 스크롤 요소)를 스크롤한다
+- 대상.scrollTo(X좌표, Y좌표)
+- 대상.scrollTo({ top: Y, left: X, behavior: 'smooth'})
+
+```js
+setTimeout(() => {
+  window.scrollTo(0, 500)
+}, 1000)
+```
+```js
+setTimeout(() => {
+  window.scrollTo({
+    left: 0,
+    right: 500,
+    behavior: 'smooth'
+  })
+}, 1000)
+```
+```js
+const parentEl = document.querySelector('.parent');
+
+setTimeout(() => {  
+ parentEl.scrollTo({
+    left: 0,
+    right: 500,
+    behavior: 'smooth'
+  })
+}, 1000)
+```
+🌱 `E.clientWidth()` vs `E.clientHeight()`
+- 테두리 선을 제외한 요소의 크기를 얻는다
+```js
+const parentEl = document.querySelector('.parent');
+const childEl = document.querySelector('.child');
+
+console.log(parentEl.clientWidth, parentEl.clientHeight);
+console.log(childtEl.clientWidth, childEl.clientHeight);
+```
+
+🌱 `E.offsetWidth()` vs `E.offsetHeight()`
+- 테두리 선을 포함한 요소의 크기를 얻는다
+
+🌱 `E.scrollLeft()` vs `E.scrollTop()`
+- 스크롤 요소의 좌상단 기준
+- 현재 스크롤 요소의 수평 혹은 수직 스크롤 위치를 얻는다
+
+🌱 `E.offsetLeft()` vs `E.offsetTop()`
+- 페이지의 최상단 기준, 요소의 위치를 얻는다
+
+🌱 `E.getBoundingClientRect()`
+- 테두리 선을 포함한 요소의 크기와
+- 화면에서의 상대 위치 정보를 얻는다
