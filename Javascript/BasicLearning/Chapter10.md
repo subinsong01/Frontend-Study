@@ -98,3 +98,19 @@ console.log(document.cookie)
 🌱 `.setItem() : 데이터 추가`<br />
 🌱 `.removeItem: 데이터 제거`<br />
 🌱 `.clear(): 스토리지 초기화` <br />
+
+## 📂 Location
+
+🌱 `.href: 전체 URL 주소` <br />
+🌱 `.hash: 해시 정보(페이지의 ID)` <br />
+🌱 `.assign(주소): 해당 주소로 페이지 이동` <br />
+🌱 `.replace(주소): 해당 주소로 페이지 이동, 현대 페이지의 히스토리를 제거한다는 점에서 assign이랑 다름` <br />
+
+- `history` 제거는 뒤로 가기를 방지해줌
+  
+🌱 `.reload(주소): 페이지 새로고침, `true`인수는 `강력` 새로고침 ` <br />
+  
+## 📂 History
+
+
+
