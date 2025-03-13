@@ -1,4 +1,4 @@
-# 📕 Chapter10. 기타 Web APIs
+# 📕 Chapter10) 기타 Web APIs
 
 ## **🚀 목차**
 
@@ -112,5 +112,17 @@ console.log(document.cookie)
   
 ## 📂 History
 
+```js
+//history.js
+console.log(history);
+```
+<img width="250" alt="스크린샷 2025-03-13 오전 12 10 12" src="https://github.com/user-attachments/assets/41f5b37a-ad98-4321-ab15-bc321df48351" />
 
+- `.length`: 등록된 히스토리 개수(뒤로 가거나 앞으로 가는 페이지가 존재하는 경우)
+- `.scrollRestoration`: 히스토리 탐색시 스크롤 위치 복원 여부 확인 및 지정 
+- `.state`: 현재 히스토리에 등록된 데이터(상태)
+
+- `.back()`: 뒤로 가기
+- `.forward()`: 앞으로 가기
+- `.go(위치)`: 현재 페이지 기준 특정 히스토리 위치로 이동
 
