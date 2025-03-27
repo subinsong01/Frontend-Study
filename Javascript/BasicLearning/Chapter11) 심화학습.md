@@ -156,3 +156,26 @@ console.log(count2());//1
 console.log(count2());//2
 console.log(count2());//3
 ```
+## 📂 메모리 누수
+- 더 이상 필요하지않은 데이터가 해지되지 못하고 메모리를 계속 차지하는 형상 <br/>
+
+`어떨 때 발생해요 ?`
+1. 불필요한 전역 변수 사용
+2. 분리된 노드(요소, element) 참조
+3. 해제하지 않은 타이머
+```js
+let a = 0
+const intervalId = setInterval(() => {
+  a += 1
+})
+
+setTimeout(() => {
+  console.log(a)
+  clearInterval(intervalId);
+}, 1000)
+
+```
+4. 잘못된 클로저 사용
+
+## 📂 콜 스택, 테스크 큐, 이벤트 루프
+
