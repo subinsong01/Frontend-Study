@@ -1,14 +1,15 @@
-# Frontend-Study
+<div align="center">
 
-## 🌱 프론트엔드 공부
+# 🌱 프론트엔드 공부
 
-### 📂 [HTML](https://github.com/subinsong01/Frontend-Study/tree/main/HTML) 
-### 📂 [CSS](https://github.com/subinsong01/Frontend-Study/tree/main/css)
-### 📂 [JavaScript](https://github.com/subinsong01/Frontend-Study/tree/main/Javascript)
-  - [Algorithm](https://github.com/subinsong01/Frontend-Study/tree/main/Javascript/Algorithm) 
-  - [BasicLearning](https://github.com/subinsong01/Frontend-Study/tree/main/Javascript/BasicLearning) 
-  - [PS](https://github.com/subinsong01/Frontend-Study/tree/main/Javascript/PS)
-### 📂 [React](https://github.com/subinsong01/Frontend-Study/tree/main/React)
-### 📂 [TypeScript](https://github.com/subinsong01/Frontend-Study/tree/main/TypeScript)
-  
+</div>
+
+## ✨ About 
+
+- 프론트엔드를 공부하면서 기록했습니다
+- 
+
+## 🕦 Update
+- 매일 꾸준히 기록하는 것을 목표로 합니다.
+- **From** : 2024.10 ~
 
